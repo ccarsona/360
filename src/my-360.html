@@ -1,0 +1,146 @@
+<!--<link rel="import" href="../bower_components/polymer/polymer.html">-->
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
+
+<!--<link rel="import" href="../bower_components/google-streetview-pano/google-streetview-pano.html">-->
+
+
+
+
+
+<dom-module id="my-360">
+
+    <template>
+
+
+        <style>
+            :host {
+                --paper-tab-ink: #636FB7;
+            }
+            
+            paper-tabs {
+                --paper-tabs-selection-bar-color: #ffffff;
+                
+            }
+        </style>
+
+        <style is="custom-style">
+            paper-tabs {
+                background-color: #303F9F;
+                color: #90ABDD;
+                font-size: 14px;
+            }
+            
+            paper-tab.iron-selected {
+                color: #ffffff;
+            }
+            
+            .tab-content {
+                height: 100%;
+                color: #fff;
+            }
+        </style>
+
+        <style>
+            .embed-container {
+                position: fixed;
+                width: 100%;
+                height: calc(100vh - 99px);
+            }
+            
+            .embed-container iframe,
+            .embed-container object,
+            .embed-container embed {
+                position: relative;
+                display: block;
+                border: none;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+
+
+        <!--
+         <style>
+    
+    google-streetview-pano {
+      display: block;
+      height: 400px;
+    }
+  </style>
+-->
+
+
+
+        <iron-pages selected="{{selected}}">
+
+
+            <div class='embed-container'>
+                <iframe src='https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1471047273914!6m8!1m7!1sN9fBr8s14ToAAAQvOix5Dg!2m2!1d48.42461015471119!2d-123.3646252490094!3f14!4f0!5f0.7820865974627469' width='600' height='450' frameborder='0' allowfullscreen></iframe>
+            </div>
+
+            <div>
+                <div class='embed-container'>
+                    <iframe src='https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1471047314014!6m8!1m7!1sqr43CcMzzigAAAQvOi18PQ!2m2!1d48.42466934509151!2d-123.3645987839696!3f14!4f0!5f0.7820865974627469' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>
+                </div>
+                <!--                 <google-streetview-pano pano-id="qr43CcMzzigAAAQvOi18PQ" heading="350" pitch="-2" zoom="0.8"></google-streetview-pano>-->
+            </div>
+            <div>
+                <div class='embed-container'>
+                    <iframe src='https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1471052416733!6m8!1m7!1skauMqblKVgMAAAQvOiaP8Q!2m2!1d48.42476505957401!2d-123.3645466172594!3f14!4f0!5f0.7820865974627469' width='600' height='450' frameborder='0' style='border:0' allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </iron-pages>
+
+
+        <style>
+            footer {
+                /* just for demo */
+                text-align: center;
+                padding-bottom: 5px;
+                /* just for demo */
+                height: 40px;
+                width: 100%;
+            }
+        </style>
+        <div>
+            <footer style="position:fixed;bottom:55px; z-index: 2; box-shadow: 14px 0px 14px rgba(0,0,0,.8);">
+                <paper-tabs selected="{{selected}}" scrollable>
+                     
+                    <paper-tab>FRONT</paper-tab>
+                    <paper-tab>LOBBY</paper-tab>
+                    <paper-tab>DINING ROOM</paper-tab>
+
+
+                </paper-tabs>
+
+            </footer>
+        </div>
+
+
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'my-360',
+
+            properties: {
+                selected: {
+                    value: 0
+                }
+            }
+
+        });
+    </script>
+
+</dom-module>

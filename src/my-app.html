@@ -1,0 +1,261 @@
+<script>
+    window.Polymer = {
+        dom: 'shady',
+        lazyRegister: true
+    };
+</script>
+
+
+<!--app route-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<!--end app route-->
+
+
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+
+<!--icons-->
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../bower_components/iron-icons/image-icons.html">
+<!--<link rel="import" href="my-icons.html">-->
+<!--end icons-->
+
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
+
+<!-- <link rel="import" href="../bower_components/google-streetview-pano/google-streetview-pano.html">-->
+
+
+<!--open head panel and body-->
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+
+
+
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<!--end open head panel and body-->
+
+
+<!--<link rel="stylesheet" href="../bower_components/paper-styles/demo.css">-->
+
+
+<!--
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+-->
+
+
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/paper-styles/demo-pages.html">
+<link rel="import" href="../bower_components/paper-styles/default-theme.html">
+
+
+<!--
+<link rel="import" href="../bower_components/iron-menu-behavior/demo/simple-menu.html">
+<link rel="import" href="../bower_components/iron-menu-behavior/demo/simple-menubar.html">
+-->
+
+
+
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+
+<link rel="import" href="../bower_components/l2t-paper-slider/l2t-paper-slider.html">
+<!--
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+-->
+<!--<link rel="import" href="../bower_components/awesome-slider/awesome-slider.html">-->
+
+<!--Custom Elements-->
+<!--<link rel="import" href="../src/my-main.html">-->
+<!--<link rel="import" href="../src/my-opening.html">-->
+<link rel="import" href="../src/my-twitter.html">
+<link rel="import" href="../src/my-social.html">
+<link rel="import" href="../src/my-hours.html">
+<link rel="import" href="../src/my-menubar.html">
+<link rel="import" href="../src/my-menu.html">
+<link rel="import" href="../src/my-gallery.html">
+
+
+<!--<link rel="import" href="../../paper-item/paper-item.html">-->
+
+
+
+<dom-module id="my-app">
+
+    <template>
+
+        <style>
+            :host {
+                display: block;
+            }
+            
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: #fff;
+                z-index: 5;
+            }
+        </style>
+
+
+        <style is="custom-style">
+            my-menu,
+            my-menubar {
+                display: inline-block;
+            }
+            
+            my-menu a {
+                display: block;
+            }
+            
+            my-menubar a,
+            my-menu a {
+                padding: 12px 12px;
+                color: #7C9BD3;
+                font-size: 15px;
+                font-weight: 400;
+                background-color: white;
+                text-decoration: none;
+                /*                eliminates ugly blue outline in chrome*/
+                outline: 0 !important;
+            }
+            
+            .horizontal-section {
+                padding: 0;
+            }
+            /*
+            .iron-selected {
+                color: #303F9F !important;
+                background-color: white !important;
+             font-weight: 900 !important;
+            }
+*/
+            
+            footer {
+                position: fixed;
+                bottom: 0;
+                background-color: #ffffff;
+                text-align: center;
+                padding-bottom: 17px;
+                height: 40px;
+                width: 100%;
+                box-shadow: 0px 0px 13px rgba(0, 0, 0, .8);
+            }
+        </style>
+
+
+
+
+        <my-social></my-social>
+
+
+
+        <app-location route="{{route}}"></app-location>
+        <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+
+
+
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+            <my-opening name="opening"></my-opening>
+            <my-360 name="360"></my-360>
+            <my-map name="map"></my-map>
+            <my-street name="street"></my-street>
+            <my-gallery name="gallery"></my-gallery>
+        </iron-pages>
+
+
+
+
+
+        <footer>
+
+            <my-menubar selected="[[page]]" attr-for-selected="name" role="navigation">
+
+                <!--
+                <a name="main" href="/opening" role="menuitem" style="color:white; background-color: #303F9F; text-align:left;">
+                    <iron-icon icon="icons:arrow-back" style="margin-bottom:38px; margin-top:10px; margin-right:-10px;"></iron-icon>
+                </a>
+-->
+
+                <a name="opening" href="/opening" role="menuitem">
+                    <iron-icon icon="icons:arrow-back" style="margin-bottom:35px;margin-right:-10px;"></iron-icon>
+                </a>
+                <a name="360" href="/360" role="menuitem">
+                    <iron-icon icon="maps:store-mall-directory"></iron-icon>
+                    <br>Enter</a>
+                <a name="map" href="/map" role="menuitem">
+                    <iron-icon icon="maps:directions"></iron-icon>
+                    <br>Map</a>
+
+                <a name="street" href="/street" role="menuitem">
+                    <iron-icon icon="maps:directions-car"></iron-icon>
+                    <br>Street</a>
+                <a name="gallery" href="/gallery" role="menuitem">
+                    <iron-icon icon="image:photo-library"></iron-icon>
+                    <br>Gallery</a>
+
+            </my-menubar>
+
+
+        </footer>
+
+
+
+
+    </template>
+
+
+
+
+    <script>
+        Polymer({
+
+            is: 'my-app',
+
+            properties: {
+
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
+
+            },
+
+            observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+            _routePageChanged: function (page) {
+                this.page = page || 'opening';
+            },
+
+            _pageChanged: function (page) {
+                // load page import on demand.
+                this.importHref(
+                    this.resolveUrl('my-' + page + '.html'), null, null, true);
+            }
+
+        });
+    </script>
+
+</dom-module>

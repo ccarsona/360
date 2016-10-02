@@ -1,0 +1,141 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-dialog-behavior/paper-dialog-behavior.html">
+<!--  <link rel="import" href="../bower_components/paper-button/paper-button.html">-->
+<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+<link href="../bower_components/iron-icons/social-icons.html" rel="import">
+<link href="../bower_components/iron-icons/communication-icons.html" rel="import">
+
+<link href="../bower_components/iron-icons/social-icons.html" rel="import">
+<link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+
+<dom-module id="my-social">
+
+    <template>
+
+
+
+        <style is="custom-style">
+            paper-button.custom {
+                --paper-button-ink-color: var(--paper-indigo-200);
+                /* These could also be individually defined for each of the
+      specific css classes, but we'll just do it once as an example */
+                --paper-button-flat-keyboard-focus: {
+                    background-color: var(--paper-indigo-200);
+                    color: white !important;
+                }
+                ;
+                --paper-button-raised-keyboard-focus: {
+                    background-color: var(--paper-indigo-200) !important;
+                    color: white !important;
+                }
+                ;
+            }
+            
+            paper-button.custom:hover {
+                background-color: var(--paper-indigo-400);
+            }
+            
+            paper-button.indigo {
+                background-color: var(--paper-indigo-500);
+                color: white;
+                width: 80px;
+                display: block;
+                margin: auto;
+                margin-top: 20px;
+                width: 70%;
+                --paper-button-raised-keyboard-focus: {
+                    background-color: var(--paper-indigo-200) !important;
+                    color: white !important;
+                }
+                ;
+            }
+            
+            paper-icon-button.white {
+                position: fixed;
+                top: 40px;
+                right: 20px;
+                color: #ffffff;
+                fill: grey;
+                background-color: rgba(48, 63, 159, 0.7);
+                height: 38px;
+                width: 38px;
+                border-radius: 10px;
+                z-index: 3;
+            }
+        </style>
+
+        <!--
+
+        <style is="custom-style">
+            
+            
+  paper-button.custom {
+    
+  paper-button.indigo {
+    background-color: var(--paper-indigo-500);
+    color: white;
+    --paper-button-raised-keyboard-focus: {
+      background-color: var(--paper-pink-a200) !important;
+      color: white !important;
+    };
+  }
+  
+
+            
+            
+            paper-icon-button.white {
+                position: fixed;
+                top: 50px;
+                right: 20px;
+                color: #ffffff;
+                fill: grey;
+                background-color: rgba(48, 63, 159, 0.7);
+                height: 38px;
+                width: 38px;
+                border-radius: 10px;
+                	z-index: 3;
+            }
+            }
+        </style>
+-->
+
+        <!--      <paper-fab onclick="animated.open()" icon="favorite" title="heart" class="blue" ></paper-fab>-->
+        <!--      <paper-icon-button icon="favorite" title="heart"></paper-icon-button>-->
+
+        <paper-icon-button onclick="animated.open()" icon="social:share" class="white"></paper-icon-button>
+        <paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+
+            <paper-button class="custom indigo">
+                <iron-icon icon="communication:phone"></iron-icon>Phone</paper-button>
+
+            <div><img src="../images/social/mail-square-social-media.svg" alt="mail" style="height:40px;width:40px; margin-right: 15px;">
+
+                <img src="../images/social/1471040923_facebook-square-social-media.svg" alt="mail" style="height:40px;width:40px;"></div>
+            <div><img src="../images/social/1471040930_twitter-square-social-media.svg" alt="mail" style="height:40px;width:40px; margin-right: 15px;">
+                <img src="../images/social/1471040955_google_plus-square-social-media.svg" alt="mail" style="height:40px;width:40px;"></div>
+
+
+        </paper-dialog>
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'my-social'
+
+        });
+    </script>
+
+</dom-module>
